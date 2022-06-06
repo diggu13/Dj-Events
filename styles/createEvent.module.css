@@ -1,0 +1,32 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin:3% auto;
+    background-color: aliceblue;
+    padding: 2% 0;
+    border-radius: 10px;
+}
+.formItems{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 1% auto;
+}
+.submit{
+    text-align: center;
+    padding: 2%;
+}
+.submitbutton{
+    padding: 1%  2%;
+    width: 100px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+@media only screen and (max-width: 700px) {
+.form{
+    width: 90%;
+}
+}

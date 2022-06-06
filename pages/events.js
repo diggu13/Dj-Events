@@ -1,13 +1,12 @@
-import Layout from '@/components/Layout';
+import Layout from '@/components/Layout'
 import styles from '@/styles/home.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-
-
-const index = ({data}) => {
+const events = ({data}) => {
   return (
-   <Layout>
-      {data.data.allEvents.slice(0,3).map((item)=>{
+    <div>
+      <Layout title="Dj events Party events" description='All dj events Party events'>
+      {data.data.allEvents.map((item)=>{
         return(<div className={styles.eventContainer}>
           <div className={styles.eventName}>
             <h2>{item.event}</h2>
@@ -20,11 +19,11 @@ const index = ({data}) => {
           </div>
         </div>)
       })}
-   </Layout>
+      </Layout>
+    </div>
   )
 }
-
-export default index;
+export default events
 export async function getServerSideProps({req,res}){
   const reqBody = {
     query : `
@@ -37,7 +36,7 @@ export async function getServerSideProps({req,res}){
         }
       }
     `
-  }
+  }  
   const response = await fetch('http://localhost:4000/app',{
     method:'POST',
     body: JSON.stringify(reqBody),
@@ -46,7 +45,7 @@ export async function getServerSideProps({req,res}){
         'Authorization':`${req.cookies.token}`
     }
   })
-  const data = await response.json()
+  const data = await response.json();
   if(data.data.allEvents === null){
     return {
       redirect: {

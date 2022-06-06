@@ -1,0 +1,13 @@
+.footer{
+    display: flex;
+    align-items: center;
+    flex-direction:column ;
+}
+
+.aboutlink{
+    color: rgb(166, 176, 185);
+}
+.aboutlink:hover{
+    color: rgb(176, 195, 212);
+
+}
